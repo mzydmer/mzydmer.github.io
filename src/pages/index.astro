@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="首页">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Personal Notes</p>
+      <h1>记录技术、生活和正在发生的想法。</h1>
+      <p class="lede">用 Markdown 写文章，把图片和内容一起放进 GitHub，由 GitHub Pages 自动发布。</p>
+    </div>
+  </section>
+
+  <section class="post-list" aria-label="文章列表">
+    {posts.map((post) => (
+      <article class="post-card">
+        <a class="cover-link" href={`/posts/${post.slug}/`} aria-label={`阅读 ${post.data.title}`}>
+          <img src={post.data.cover} alt="" loading="lazy" />
+        </a>
+        <div class="post-card-body">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('zh-CN', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          <h2><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
+          <p>{post.data.description}</p>
+          <div class="tags">
+            {post.data.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

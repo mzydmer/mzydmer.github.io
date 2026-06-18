@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="桌面上的笔记本、图片和博客草稿">
+  <rect width="1200" height="750" fill="#e7dfcf"/>
+  <rect x="92" y="84" width="1016" height="582" rx="28" fill="#fffaf0" stroke="#cfc4ad" stroke-width="6"/>
+  <rect x="150" y="145" width="420" height="460" rx="18" fill="#237b63"/>
+  <circle cx="242" cy="232" r="52" fill="#f2c36b"/>
+  <path d="M177 524 307 356l93 116 60-74 82 126z" fill="#d8efe4"/>
+  <rect x="635" y="158" width="370" height="42" rx="12" fill="#1f2523"/>
+  <rect x="635" y="235" width="310" height="24" rx="8" fill="#8d968f"/>
+  <rect x="635" y="286" width="350" height="24" rx="8" fill="#8d968f"/>
+  <rect x="635" y="337" width="260" height="24" rx="8" fill="#8d968f"/>
+  <rect x="635" y="438" width="180" height="54" rx="27" fill="#c65f3a"/>
+  <rect x="850" y="438" width="120" height="54" rx="27" fill="#237b63"/>
+</svg>

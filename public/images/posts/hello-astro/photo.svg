@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="博客图片目录示意图">
+  <rect width="1200" height="720" fill="#f3f0e8"/>
+  <rect x="120" y="102" width="960" height="516" rx="24" fill="#ffffff" stroke="#d8d0bf" stroke-width="5"/>
+  <rect x="184" y="170" width="260" height="340" rx="14" fill="#e8f3ee"/>
+  <rect x="488" y="170" width="260" height="340" rx="14" fill="#f5e2d7"/>
+  <rect x="792" y="170" width="224" height="340" rx="14" fill="#e5e1f0"/>
+  <path d="M214 428 286 334l58 72 38-46 42 68z" fill="#237b63"/>
+  <path d="M520 428 592 334l58 72 38-46 42 68z" fill="#c65f3a"/>
+  <path d="M824 428 892 338l52 68 30-38 36 60z" fill="#4f6f93"/>
+  <circle cx="246" cy="226" r="30" fill="#f2c36b"/>
+  <circle cx="552" cy="226" r="30" fill="#f2c36b"/>
+  <circle cx="856" cy="226" r="30" fill="#f2c36b"/>
+  <rect x="192" y="542" width="824" height="18" rx="9" fill="#8d968f"/>
+  <rect x="192" y="575" width="530" height="18" rx="9" fill="#b6b0a3"/>
+</svg>

@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+const { title, description = '一个使用 Astro 和 GitHub Pages 搭建的个人博客。' } = Astro.props;
+const siteTitle = 'My Blog';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={siteTitle} href="/rss.xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">My Blog</a>
+      <nav aria-label="主导航">
+        <a href="/">文章</a>
+        <a href="/about/">关于</a>
+        <a href="/rss.xml">RSS</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <span>Built with Astro · Published on GitHub Pages</span>
+    </footer>
+  </body>
+</html>
