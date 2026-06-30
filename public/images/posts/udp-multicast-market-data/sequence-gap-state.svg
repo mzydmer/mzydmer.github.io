@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Sequence gap state machine</title>
+  <desc id="desc">Sequence 102 to 104 are missing between received messages 101 and 105, so the channel enters recovery before becoming healthy again.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#21351d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a3e635"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="650" rx="28" fill="url(#bg)"/>
+  <text x="70" y="78" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Sequence Gap Detection</text>
+  <text x="70" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">A future sequence can arrive before missing messages. Buffering is not applying.</text>
+
+  <line x1="110" y1="248" x2="1090" y2="248" stroke="#64748b" stroke-width="4"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">
+    <rect x="125" y="196" width="78" height="56" rx="12" fill="#0f766e" stroke="#99f6e4" stroke-width="2"/>
+    <text x="164" y="232" text-anchor="middle" fill="#ecfeff">100</text>
+    <rect x="265" y="196" width="78" height="56" rx="12" fill="#0f766e" stroke="#99f6e4" stroke-width="2"/>
+    <text x="304" y="232" text-anchor="middle" fill="#ecfeff">101</text>
+    <rect x="405" y="196" width="78" height="56" rx="12" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="444" y="232" text-anchor="middle" fill="#fee2e2">102</text>
+    <rect x="545" y="196" width="78" height="56" rx="12" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="584" y="232" text-anchor="middle" fill="#fee2e2">103</text>
+    <rect x="685" y="196" width="78" height="56" rx="12" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2" stroke-dasharray="8 7"/>
+    <text x="724" y="232" text-anchor="middle" fill="#fee2e2">104</text>
+    <rect x="825" y="196" width="78" height="56" rx="12" fill="#1d4ed8" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="864" y="232" text-anchor="middle" fill="#dbeafe">105</text>
+  </g>
+  <text x="440" y="300" fill="#fecaca" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">missing range [102, 104]</text>
+  <text x="820" y="300" fill="#bfdbfe" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">buffer future 105</text>
+
+  <rect x="150" y="390" width="190" height="70" rx="16" fill="#14532d" stroke="#86efac" stroke-width="2"/>
+  <rect x="390" y="390" width="210" height="70" rx="16" fill="#713f12" stroke="#fde68a" stroke-width="2"/>
+  <rect x="650" y="390" width="190" height="70" rx="16" fill="#1e3a8a" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="890" y="390" width="160" height="70" rx="16" fill="#14532d" stroke="#86efac" stroke-width="2"/>
+  <text x="245" y="434" text-anchor="middle" fill="#dcfce7" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">HEALTHY</text>
+  <text x="495" y="434" text-anchor="middle" fill="#fef3c7" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">GAP_DETECTED</text>
+  <text x="745" y="434" text-anchor="middle" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">RECOVERING</text>
+  <text x="970" y="434" text-anchor="middle" fill="#dcfce7" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">HEALTHY</text>
+  <path d="M 345 425 L 380 425" stroke="#a3e635" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M 605 425 L 640 425" stroke="#a3e635" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M 845 425 L 880 425" stroke="#a3e635" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="150" y="548" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="19">A gap changes channel continuity and local state trust. It is a state machine, not just a log line.</text>
+</svg>

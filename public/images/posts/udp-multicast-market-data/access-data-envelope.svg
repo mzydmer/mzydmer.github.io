@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">AccessData envelope</title>
+  <desc id="desc">Raw UDP packets are wrapped into AccessData with sequence, channel, feed, timestamps, and address metadata.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102033"/>
+      <stop offset="1" stop-color="#0f2d27"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <text x="70" y="78" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">From UDP Packet to AccessData</text>
+  <text x="70" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">Production market-data ingestion needs context, not just bytes.</text>
+
+  <rect x="80" y="250" width="220" height="120" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+  <text x="190" y="292" text-anchor="middle" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Raw UDP Packet</text>
+  <rect x="120" y="320" width="26" height="22" rx="4" fill="#38bdf8"/>
+  <rect x="154" y="320" width="26" height="22" rx="4" fill="#7dd3fc"/>
+  <rect x="188" y="320" width="26" height="22" rx="4" fill="#bae6fd"/>
+  <text x="238" y="337" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="18">...</text>
+
+  <path d="M 320 310 L 465 310" stroke="#38bdf8" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="490" y="155" width="330" height="310" rx="22" fill="#0f172a" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="655" y="205" text-anchor="middle" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">AccessData</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">
+    <text x="535" y="260" fill="#bae6fd">body</text>
+    <text x="535" y="300" fill="#bae6fd">channelId</text>
+    <text x="535" y="340" fill="#bae6fd">sequenceNumber</text>
+    <text x="535" y="380" fill="#bae6fd">originSendTime</text>
+    <text x="535" y="420" fill="#bae6fd">receiveTime</text>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">
+    <text x="690" y="260" fill="#dcfce7">feedName</text>
+    <text x="690" y="300" fill="#dcfce7">accessAddress</text>
+    <text x="690" y="340" fill="#dcfce7">protocol</text>
+    <text x="690" y="380" fill="#dcfce7">partitionKey</text>
+    <text x="690" y="420" fill="#dcfce7">receiveNanos</text>
+  </g>
+
+  <path d="M 840 310 L 980 310" stroke="#38bdf8" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+  <rect x="1000" y="205" width="140" height="70" rx="16" fill="#12342f" stroke="#8be9c1" stroke-width="2"/>
+  <rect x="1000" y="315" width="140" height="70" rx="16" fill="#12342f" stroke="#8be9c1" stroke-width="2"/>
+  <text x="1070" y="248" text-anchor="middle" fill="#dcfce7" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800">Parser</text>
+  <text x="1070" y="358" text-anchor="middle" fill="#dcfce7" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800">Monitor</text>
+  <text x="80" y="540" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="19">sequence + channel + time + address make continuity, latency, partitioning, and recovery observable.</text>
+</svg>

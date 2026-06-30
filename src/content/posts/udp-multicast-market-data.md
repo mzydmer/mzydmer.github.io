@@ -1,9 +1,9 @@
 ---
 title: "交易所组播行情接入：为什么是 UDP Multicast"
 description: "交易所行情不是普通 API 请求响应，而是高频、低延迟、一对多的广播型数据流。UDP Multicast 把发送端扩展性问题交给网络和接入方，但也要求接入系统补齐 sequence、gap detection、recovery、状态校验和监控能力。"
-pubDate: 2026-06-30
+pubDate: 2025-04-29
 tags: ["Market Data", "UDP Multicast", "交易系统", "系统设计"]
-cover: "/images/posts/udp-multicast-market-data/note-1.jpg"
+cover: "/images/posts/udp-multicast-market-data/responsibility-shift.svg"
 draft: false
 ---
 
@@ -17,7 +17,7 @@ draft: false
 
 UDP Multicast 正是在这个问题下的一种工程取舍。
 
-![UDP Multicast 文章草稿截图](/images/posts/udp-multicast-market-data/note-1.jpg)
+![TCP Fanout 与 UDP Multicast 的分发模型对比](/images/posts/udp-multicast-market-data/multicast-vs-tcp.svg)
 
 ## 行情分发首先是广播问题
 
@@ -101,7 +101,7 @@ accessAddress
 
 这也是行情接入和普通 UDP demo 最大的区别。普通 demo 只关心能不能收到包，生产系统关心的是收到的包能不能证明自己连续、及时、可信。
 
-![消息封装和元信息](/images/posts/udp-multicast-market-data/note-3.jpg)
+![行情接入层把原始 UDP 包封装成带上下文的 AccessData](/images/posts/udp-multicast-market-data/access-data-envelope.svg)
 
 ## 接入方必须补上 Sequence 能力
 
@@ -128,7 +128,7 @@ seq < expectedSeq:
 
 一个成熟接入系统通常会把 `sequence`、`channel`、`timestamp` 和消息体一起封装，作为后续解析、分区、监控和恢复的基础数据结构。
 
-![Sequence gap detection](/images/posts/udp-multicast-market-data/note-4.jpg)
+![Sequence gap detection 与 channel 状态流转](/images/posts/udp-multicast-market-data/sequence-gap-state.svg)
 
 ## Gap 不是日志，而是状态机
 
@@ -368,7 +368,7 @@ Receiver Thread 只做三件事：
 
 这就是从“会收 UDP 包”到“能做生产行情接入”的差别。
 
-![Receiver thread should be thin](/images/posts/udp-multicast-market-data/note-10.jpg)
+![UDP Multicast 接收线程保持轻量，把解析和状态构建交给 worker](/images/posts/udp-multicast-market-data/receiver-pipeline.svg)
 
 ## Multicast 还有部署复杂度
 
@@ -447,6 +447,8 @@ localStateTrustStatus
 ## 小结
 
 交易所行情接入选择 UDP Multicast，本质上是一种工程责任划分。
+
+![UDP Multicast 把传输可靠性之外的连续性、恢复和状态校验责任转移给接入方](/images/posts/udp-multicast-market-data/responsibility-shift.svg)
 
 它选择了：
 

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Responsibility shift in UDP multicast market data</title>
+  <desc id="desc">UDP multicast keeps the exchange side simple and moves sequence tracking, gap detection, recovery, validation, and monitoring to the receiver side.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#0e2932"/>
+      <stop offset="1" stop-color="#11351f"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" rx="28" fill="url(#bg)"/>
+  <text x="70" y="80" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">UDP Multicast Is a Responsibility Shift</text>
+  <text x="70" y="120" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">The exchange optimizes broadcast latency. The receiver proves continuity and state trust.</text>
+
+  <rect x="80" y="175" width="360" height="330" rx="24" fill="#10213b" stroke="#60a5fa" stroke-width="2"/>
+  <text x="260" y="230" text-anchor="middle" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">Exchange Side</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#e0f2fe">
+    <text x="130" y="300">one-to-many broadcast</text>
+    <text x="130" y="350">low latency</text>
+    <text x="130" y="400">stable sender load</text>
+    <text x="130" y="450">no per-client state</text>
+  </g>
+
+  <path d="M 470 340 L 720 340" stroke="#f59e0b" stroke-width="10" marker-end="url(#arrow)"/>
+  <text x="595" y="306" text-anchor="middle" fill="#fed7aa" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">reliability work moves here</text>
+
+  <rect x="760" y="150" width="360" height="380" rx="24" fill="#0f2f24" stroke="#86efac" stroke-width="2"/>
+  <text x="940" y="205" text-anchor="middle" fill="#dcfce7" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">Receiver Side</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#dcfce7">
+    <text x="810" y="275">sequence tracking</text>
+    <text x="810" y="320">gap detection</text>
+    <text x="810" y="365">recovery / refresh</text>
+    <text x="810" y="410">state validation</text>
+    <text x="810" y="455">monitoring</text>
+    <text x="810" y="500">metric isolation</text>
+  </g>
+
+  <text x="70" y="585" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Core question: can the receiver prove the data is continuous, timely, and trustworthy?</text>
+</svg>

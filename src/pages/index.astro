@@ -27,7 +27,8 @@ const posts = (await getCollection('posts'))
             {post.data.pubDate.toLocaleDateString('zh-CN', {
               year: 'numeric',
               month: 'long',
-              day: 'numeric'
+              day: 'numeric',
+              timeZone: 'UTC'
             })}
           </time>
           <h2><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
