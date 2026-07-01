@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">Dual Line Channel Arbitration</title>
+  <desc id="desc">A/B feed receivers are arbitrated at channel and sequence granularity.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#93c5fd"/>
+    </marker>
+    <style>
+      .bg { fill: #0b1120; }
+      .title { fill: #f8fafc; font: 700 34px Arial, sans-serif; }
+      .sub { fill: #94a3b8; font: 18px Arial, sans-serif; }
+      .node { fill: #111827; stroke: #60a5fa; stroke-width: 2; rx: 16; }
+      .node2 { fill: #102a22; stroke: #34d399; stroke-width: 2; rx: 16; }
+      .warn { fill: #2a1e10; stroke: #f59e0b; stroke-width: 2; rx: 16; }
+      .label { fill: #e2e8f0; font: 700 18px Arial, sans-serif; }
+      .txt { fill: #cbd5e1; font: 15px Arial, sans-serif; }
+      .line { stroke: #93c5fd; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #f59e0b; stroke-width: 3; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1320" height="760"/>
+  <text x="56" y="62" class="title">A/B feed is real-time arbitration, not cold standby</text>
+  <text x="56" y="96" class="sub">The decision key is exchange + feed + channelId + sequenceNumber.</text>
+
+  <rect x="70" y="170" width="260" height="120" class="node"/>
+  <text x="100" y="215" class="label">Line A Receiver</text>
+  <text x="100" y="248" class="txt">received: 100, 101, 105</text>
+  <text x="100" y="274" class="txt">missing: 102-104</text>
+
+  <rect x="70" y="440" width="260" height="120" class="node"/>
+  <text x="100" y="485" class="label">Line B Receiver</text>
+  <text x="100" y="518" class="txt">received: 100-105</text>
+  <text x="100" y="544" class="txt">continuous</text>
+
+  <path class="line" d="M330 230 C450 230 470 320 560 320"/>
+  <path class="line" d="M330 500 C450 500 470 390 560 390"/>
+
+  <rect x="560" y="270" width="300" height="170" class="node2"/>
+  <text x="600" y="318" class="label">Channel Arbitrator</text>
+  <text x="600" y="354" class="txt">expectedSeq = 102</text>
+  <text x="600" y="380" class="txt">fill gap from other line</text>
+  <text x="600" y="406" class="txt">drop duplicate / late packets</text>
+
+  <path class="line" d="M860 355 L1000 355"/>
+  <rect x="1000" y="270" width="250" height="170" class="node"/>
+  <text x="1030" y="318" class="label">Parse / State / Publish</text>
+  <text x="1030" y="354" class="txt">apply 102, 103, 104</text>
+  <text x="1030" y="380" class="txt">then apply 105</text>
+  <text x="1030" y="406" class="txt">state remains TRUSTED</text>
+
+  <path class="dash" d="M690 440 C690 520 500 600 320 600"/>
+  <rect x="70" y="610" width="1180" height="70" class="warn"/>
+  <text x="100" y="653" class="txt">If neither line can fill the missing range, only then escalate to retransmission / refresh / snapshot recovery.</text>
+</svg>

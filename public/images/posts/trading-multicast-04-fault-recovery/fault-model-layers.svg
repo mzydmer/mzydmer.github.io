@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="780" viewBox="0 0 1320 780" role="img" aria-labelledby="title desc">
+  <title id="title">Market Data Fault Model Layers</title>
+  <desc id="desc">Layered fault model for multicast market data ingestion.</desc>
+  <defs>
+    <style>
+      .bg { fill: #0d1321; }
+      .title { fill: #f8fafc; font: 700 34px Arial, sans-serif; }
+      .sub { fill: #94a3b8; font: 18px Arial, sans-serif; }
+      .box { fill: #111c2f; stroke-width: 2; rx: 16; }
+      .h { fill: #e2e8f0; font: 700 19px Arial, sans-serif; }
+      .t { fill: #cbd5e1; font: 15px Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1320" height="780"/>
+  <text x="56" y="62" class="title">Faults must be modeled by layer</text>
+  <text x="56" y="96" class="sub">Do not call every incident "market data abnormal"; define how each layer can fail.</text>
+
+  <g transform="translate(56 136)">
+    <rect class="box" width="378" height="166" stroke="#38bdf8"/>
+    <text x="24" y="38" class="h">Network Layer</text>
+    <text x="24" y="72" class="t">Multicast not received</text>
+    <text x="24" y="98" class="t">Wrong interface binding</text>
+    <text x="24" y="124" class="t">IGMP / route issue</text>
+    <text x="24" y="150" class="t">RX drop / socket buffer drop</text>
+  </g>
+
+  <g transform="translate(471 136)">
+    <rect class="box" width="378" height="166" stroke="#22c55e"/>
+    <text x="24" y="38" class="h">Feed Layer</text>
+    <text x="24" y="72" class="t">Channel stopped</text>
+    <text x="24" y="98" class="t">Sequence gap</text>
+    <text x="24" y="124" class="t">Duplicate / out-of-order packet</text>
+    <text x="24" y="150" class="t">Late packet</text>
+  </g>
+
+  <g transform="translate(886 136)">
+    <rect class="box" width="378" height="166" stroke="#f97316"/>
+    <text x="24" y="38" class="h">Processing Layer</text>
+    <text x="24" y="72" class="t">Parse lag</text>
+    <text x="24" y="98" class="t">Partition hotspot</text>
+    <text x="24" y="124" class="t">State apply failure</text>
+    <text x="24" y="150" class="t">State trust broken</text>
+  </g>
+
+  <g transform="translate(56 342)">
+    <rect class="box" width="378" height="196" stroke="#a78bfa"/>
+    <text x="24" y="38" class="h">Recovery Layer</text>
+    <text x="24" y="72" class="t">A/B arbitration cannot fill gap</text>
+    <text x="24" y="98" class="t">Retransmission failed</text>
+    <text x="24" y="124" class="t">Snapshot sequence mismatch</text>
+    <text x="24" y="150" class="t">Replay cannot catch real time</text>
+    <text x="24" y="176" class="t">Recovery stuck</text>
+  </g>
+
+  <g transform="translate(471 342)">
+    <rect class="box" width="378" height="196" stroke="#facc15"/>
+    <text x="24" y="38" class="h">Publish Layer</text>
+    <text x="24" y="72" class="t">Downstream slow</text>
+    <text x="24" y="98" class="t">Send queue backlog</text>
+    <text x="24" y="124" class="t">Client pending bytes too high</text>
+    <text x="24" y="150" class="t">Slow consumer drags main path</text>
+  </g>
+
+  <g transform="translate(886 342)">
+    <rect class="box" width="378" height="196" stroke="#fb7185"/>
+    <text x="24" y="38" class="h">Control / Deployment</text>
+    <text x="24" y="72" class="t">Wrong feed config</text>
+    <text x="24" y="98" class="t">Dynamic config drift</text>
+    <text x="24" y="124" class="t">EOD cleanup missed</text>
+    <text x="24" y="150" class="t">Receiver / host / NIC failure</text>
+    <text x="24" y="176" class="t">Split brain</text>
+  </g>
+
+  <rect x="56" y="594" width="1208" height="104" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+  <text x="86" y="636" class="h">Engineering goal</text>
+  <text x="86" y="671" class="t">Detect faults, isolate impact, express state trust, close recovery loop, and prevent single points from becoming production outages.</text>
+</svg>

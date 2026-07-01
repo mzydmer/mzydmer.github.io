@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">Gap Recovery State Machine</title>
+  <desc id="desc">Channel continuity and local state trust state machine.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#c4b5fd"/>
+    </marker>
+    <style>
+      .bg { fill: #0d1321; }
+      .title { fill: #f8fafc; font: 700 34px Arial, sans-serif; }
+      .sub { fill: #94a3b8; font: 18px Arial, sans-serif; }
+      .state { fill: #111827; stroke: #8b5cf6; stroke-width: 2; rx: 18; }
+      .good { fill: #0f2f24; stroke: #22c55e; stroke-width: 2; rx: 18; }
+      .bad { fill: #2f1116; stroke: #fb7185; stroke-width: 2; rx: 18; }
+      .label { fill: #f8fafc; font: 700 20px Arial, sans-serif; }
+      .txt { fill: #cbd5e1; font: 15px Arial, sans-serif; }
+      .line { stroke: #c4b5fd; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1320" height="760"/>
+  <text x="56" y="62" class="title">Gap is a channel-level state machine</text>
+  <text x="56" y="96" class="sub">A later packet may be buffered, but it must not be applied until the missing range is closed.</text>
+
+  <rect x="80" y="270" width="190" height="110" class="good"/>
+  <text x="120" y="316" class="label">HEALTHY</text>
+  <text x="110" y="348" class="txt">sequence continuous</text>
+
+  <rect x="350" y="270" width="220" height="110" class="state"/>
+  <text x="385" y="316" class="label">GAP_DETECTED</text>
+  <text x="385" y="348" class="txt">record missingRange</text>
+
+  <rect x="650" y="270" width="210" height="110" class="state"/>
+  <text x="690" y="316" class="label">RECOVERING</text>
+  <text x="685" y="348" class="txt">A/B, retrans, snapshot</text>
+
+  <rect x="940" y="270" width="210" height="110" class="state"/>
+  <text x="985" y="316" class="label">CATCHING_UP</text>
+  <text x="982" y="348" class="txt">replay buffered future</text>
+
+  <path class="line" d="M270 325 L350 325"/>
+  <path class="line" d="M570 325 L650 325"/>
+  <path class="line" d="M860 325 L940 325"/>
+  <path class="line" d="M1150 325 C1230 325 1230 170 175 170 C110 170 100 235 120 270"/>
+
+  <rect x="650" y="500" width="210" height="110" class="bad"/>
+  <text x="720" y="546" class="label">STALE</text>
+  <text x="690" y="578" class="txt">timeout / retry exceeded</text>
+  <path class="line" d="M755 380 L755 500"/>
+
+  <rect x="80" y="575" width="500" height="90" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+  <text x="110" y="612" class="label">Core invariant</text>
+  <text x="110" y="644" class="txt">lastAppliedSeq must not jump over an open gap.</text>
+
+  <rect x="720" y="575" width="430" height="90" rx="18" fill="#1f2937" stroke="#64748b" stroke-width="2"/>
+  <text x="750" y="612" class="label">Trust status</text>
+  <text x="750" y="644" class="txt">TRUSTED / UNTRUSTED / REBUILDING / STALE</text>
+</svg>
