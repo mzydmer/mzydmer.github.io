@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">Trading multicast full-link architecture</title>
+  <desc id="desc">A full-link architecture for ingesting exchange multicast market data through adapters, access runtime, decoding, sequencing, dispatch, state, recovery, observability, and publishing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.52" stop-color="#102b3a"/>
+      <stop offset="1" stop-color="#12342f"/>
+    </linearGradient>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#42d392"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect width="1320" height="760" rx="30" fill="url(#bg)"/>
+  <text x="70" y="78" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">Trading Multicast Market Data Ingestion</text>
+  <text x="70" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">Turn unreliable multicast packets into parseable, ordered, recoverable, observable, and publishable market data.</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="65" y="168" width="210" height="104" rx="18" fill="#172554" stroke="#93c5fd" stroke-width="2"/>
+    <text x="170" y="211" text-anchor="middle" fill="#dbeafe" font-size="23" font-weight="900">Exchange</text>
+    <text x="170" y="242" text-anchor="middle" fill="#bfdbfe" font-size="15" font-weight="700">HKEX / NASDAQ / CME</text>
+
+    <rect x="330" y="168" width="210" height="104" rx="18" fill="#1e293b" stroke="#7dd3fc" stroke-width="2"/>
+    <text x="435" y="211" text-anchor="middle" fill="#e0f2fe" font-size="23" font-weight="900">Feed / Channel</text>
+    <text x="435" y="242" text-anchor="middle" fill="#bae6fd" font-size="15" font-weight="700">line, group, sequence scope</text>
+
+    <rect x="595" y="168" width="210" height="104" rx="18" fill="#164e63" stroke="#67e8f9" stroke-width="2"/>
+    <text x="700" y="211" text-anchor="middle" fill="#cffafe" font-size="23" font-weight="900">Access Runtime</text>
+    <text x="700" y="242" text-anchor="middle" fill="#a5f3fc" font-size="15" font-weight="700">NIC bind, join group, receive</text>
+
+    <rect x="860" y="168" width="210" height="104" rx="18" fill="#134e4a" stroke="#5eead4" stroke-width="2"/>
+    <text x="965" y="211" text-anchor="middle" fill="#ccfbf1" font-size="23" font-weight="900">AccessData</text>
+    <text x="965" y="242" text-anchor="middle" fill="#99f6e4" font-size="15" font-weight="700">standard packet context</text>
+
+    <rect x="1125" y="168" width="130" height="104" rx="18" fill="#365314" stroke="#bef264" stroke-width="2"/>
+    <text x="1190" y="211" text-anchor="middle" fill="#ecfccb" font-size="23" font-weight="900">Decode</text>
+    <text x="1190" y="242" text-anchor="middle" fill="#d9f99d" font-size="15" font-weight="700">binary protocol</text>
+  </g>
+
+  <path d="M 283 220 L 322 220" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M 548 220 L 587 220" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M 813 220 L 852 220" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M 1078 220 L 1117 220" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="120" y="365" width="210" height="105" rx="18" fill="#312e81" stroke="#a5b4fc" stroke-width="2"/>
+    <text x="225" y="408" text-anchor="middle" fill="#e0e7ff" font-size="23" font-weight="900">Sequencing</text>
+    <text x="225" y="439" text-anchor="middle" fill="#c7d2fe" font-size="15" font-weight="700">expected / received / applied</text>
+
+    <rect x="385" y="365" width="210" height="105" rx="18" fill="#3b0764" stroke="#d8b4fe" stroke-width="2"/>
+    <text x="490" y="408" text-anchor="middle" fill="#f3e8ff" font-size="23" font-weight="900">Dispatch</text>
+    <text x="490" y="439" text-anchor="middle" fill="#e9d5ff" font-size="15" font-weight="700">partition + worker queues</text>
+
+    <rect x="650" y="365" width="210" height="105" rx="18" fill="#14532d" stroke="#86efac" stroke-width="2"/>
+    <text x="755" y="408" text-anchor="middle" fill="#dcfce7" font-size="23" font-weight="900">State</text>
+    <text x="755" y="439" text-anchor="middle" fill="#bbf7d0" font-size="15" font-weight="700">book, snapshot, reference</text>
+
+    <rect x="915" y="365" width="210" height="105" rx="18" fill="#713f12" stroke="#fde68a" stroke-width="2"/>
+    <text x="1020" y="408" text-anchor="middle" fill="#fef3c7" font-size="23" font-weight="900">Publish</text>
+    <text x="1020" y="439" text-anchor="middle" fill="#fde68a" font-size="15" font-weight="700">filter, encode, isolate clients</text>
+  </g>
+
+  <path d="M 1190 282 C 1190 324 1060 340 1020 352" stroke="#38bdf8" stroke-width="4" fill="none" marker-end="url(#arrowBlue)"/>
+  <path d="M 1020 353 C 930 322 330 322 225 353" stroke="#38bdf8" stroke-width="4" fill="none" marker-end="url(#arrowBlue)"/>
+  <path d="M 338 418 L 377 418" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M 603 418 L 642 418" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+  <path d="M 868 418 L 907 418" stroke="#38bdf8" stroke-width="5" marker-end="url(#arrowBlue)"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="120" y="560" width="270" height="105" rx="18" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2"/>
+    <text x="255" y="602" text-anchor="middle" fill="#fee2e2" font-size="23" font-weight="900">Recovery Plane</text>
+    <text x="255" y="633" text-anchor="middle" fill="#fecaca" font-size="15" font-weight="700">gap, replay, refresh, snapshot</text>
+
+    <rect x="525" y="560" width="270" height="105" rx="18" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+    <text x="660" y="602" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="900">Observability Plane</text>
+    <text x="660" y="633" text-anchor="middle" fill="#cbd5e1" font-size="15" font-weight="700">latency, lag, gaps, state trust</text>
+
+    <rect x="930" y="560" width="270" height="105" rx="18" fill="#422006" stroke="#fdba74" stroke-width="2"/>
+    <text x="1065" y="602" text-anchor="middle" fill="#ffedd5" font-size="23" font-weight="900">Config / Control</text>
+    <text x="1065" y="633" text-anchor="middle" fill="#fed7aa" font-size="15" font-weight="700">lifecycle, trading day, switches</text>
+  </g>
+
+  <path d="M 255 552 C 245 510 235 498 225 478" stroke="#f59e0b" stroke-width="4" fill="none" marker-end="url(#arrowOrange)"/>
+  <path d="M 660 552 C 650 506 540 495 490 478" stroke="#42d392" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M 1065 552 C 1070 510 1050 498 1020 478" stroke="#f59e0b" stroke-width="4" fill="none" marker-end="url(#arrowOrange)"/>
+
+  <text x="70" y="720" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Stable core: exchange differences stay in adapters; the hot path consumes standardized AccessData.</text>
+</svg>
