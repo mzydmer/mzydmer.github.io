@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Performance troubleshooting path</title>
+  <desc id="desc">Troubleshooting flow for receiver lag, parse lag, transfer lag, and system-wide jitter in market-data ingestion.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#2b1b3d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+  <text x="70" y="76" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">Troubleshoot by Layer, Not by Guessing Parameters</text>
+  <text x="70" y="114" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">Locate the bottleneck first. Tune JVM only after the pressure layer is known.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">
+    <rect x="80" y="180" width="300" height="115" rx="20" fill="#172554" stroke="#93c5fd" stroke-width="2"/>
+    <text x="230" y="225" text-anchor="middle" fill="#dbeafe">receiver lag + socket drop</text>
+    <text x="230" y="262" text-anchor="middle" fill="#bfdbfe">NIC / kernel / receiver</text>
+    <rect x="450" y="180" width="300" height="115" rx="20" fill="#164e63" stroke="#67e8f9" stroke-width="2"/>
+    <text x="600" y="225" text-anchor="middle" fill="#cffafe">parse lag + one partition high</text>
+    <text x="600" y="262" text-anchor="middle" fill="#a5f3fc">hot channel / partition logic</text>
+    <rect x="820" y="180" width="300" height="115" rx="20" fill="#713f12" stroke="#fde68a" stroke-width="2"/>
+    <text x="970" y="225" text-anchor="middle" fill="#fef3c7">transfer lag + pending bytes</text>
+    <text x="970" y="262" text-anchor="middle" fill="#fde68a">slow consumer isolation</text>
+    <rect x="265" y="405" width="300" height="115" rx="20" fill="#4c1d95" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="415" y="450" text-anchor="middle" fill="#ede9fe">all layers jitter together</text>
+    <text x="415" y="487" text-anchor="middle" fill="#ddd6fe">GC / safepoint / allocation</text>
+    <rect x="640" y="405" width="300" height="115" rx="20" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2"/>
+    <text x="790" y="450" text-anchor="middle" fill="#fee2e2">direct memory grows</text>
+    <text x="790" y="487" text-anchor="middle" fill="#fecaca">ByteBuf lifecycle / leak</text>
+  </g>
+  <path d="M 380 238 L 440 238" stroke="#a78bfa" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 750 238 L 810 238" stroke="#a78bfa" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 600 305 C 560 350 505 380 455 400" stroke="#a78bfa" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 790 305 C 820 350 825 375 810 400" stroke="#a78bfa" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="110" y="605" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800">Rule: find the bottleneck layer first, then decide whether to change partitioning, queue capacity, lock scope, downstream handling, or JVM parameters.</text>
+</svg>

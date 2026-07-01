@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">GC latency correlation</title>
+  <desc id="desc">GC pause should be correlated with receiver lag, parse queue pressure, and real-time latency spikes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="640" rx="28" fill="url(#bg)"/>
+  <text x="70" y="76" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">GC Is Part of the Market Data Latency Path</text>
+  <text x="70" y="114" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">A GC pause matters when it correlates with receiver lag, queue pressure, and tail latency.</text>
+  <line x1="110" y1="500" x2="1080" y2="500" stroke="#64748b" stroke-width="3"/>
+  <line x1="110" y1="165" x2="110" y2="500" stroke="#64748b" stroke-width="3"/>
+  <polyline points="130,460 220,450 310,445 400,430 490,290 580,440 670,435 760,280 850,450 940,445 1040,430" fill="none" stroke="#38bdf8" stroke-width="6"/>
+  <polyline points="130,470 220,466 310,460 400,455 490,250 580,452 670,447 760,225 850,460 940,456 1040,450" fill="none" stroke="#f59e0b" stroke-width="6"/>
+  <rect x="465" y="190" width="55" height="310" fill="#ef4444" opacity="0.25"/>
+  <rect x="735" y="170" width="55" height="330" fill="#ef4444" opacity="0.25"/>
+  <text x="492" y="180" text-anchor="middle" fill="#fecaca" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">GC</text>
+  <text x="762" y="160" text-anchor="middle" fill="#fecaca" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="900">GC</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">
+    <rect x="735" y="540" width="24" height="24" fill="#38bdf8"/>
+    <text x="770" y="559" fill="#e0f2fe">real_time_latency_p99</text>
+    <rect x="735" y="575" width="24" height="24" fill="#f59e0b"/>
+    <text x="770" y="594" fill="#fef3c7">receiver_lag / parse_lag</text>
+  </g>
+  <text x="120" y="580" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Question: did the latency spike happen with GC pause, safepoint, or allocation pressure?</text>
+</svg>

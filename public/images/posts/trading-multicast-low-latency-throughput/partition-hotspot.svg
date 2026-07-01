@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">Hot channel partitioning</title>
+  <desc id="desc">Hot channels should be explicitly mapped to partitions instead of relying only on modulo hashing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102033"/>
+      <stop offset="1" stop-color="#331a14"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f97316"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="660" rx="28" fill="url(#bg)"/>
+  <text x="70" y="78" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">Hot Channels Cannot Rely on Luck</text>
+  <text x="70" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">Modulo hashing is simple, but uneven market traffic can overload one partition.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">
+    <rect x="80" y="185" width="130" height="54" rx="12" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2"/>
+    <text x="145" y="219" text-anchor="middle" fill="#fee2e2">Hot A</text>
+    <rect x="80" y="260" width="130" height="54" rx="12" fill="#7f1d1d" stroke="#fca5a5" stroke-width="2"/>
+    <text x="145" y="294" text-anchor="middle" fill="#fee2e2">Hot B</text>
+    <rect x="80" y="335" width="130" height="54" rx="12" fill="#1d4ed8" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="145" y="369" text-anchor="middle" fill="#dbeafe">Normal</text>
+  </g>
+  <path d="M 225 212 C 350 210 405 245 500 300" stroke="#f97316" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 225 287 C 350 280 410 285 500 315" stroke="#f97316" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 225 362 C 350 390 410 380 500 345" stroke="#38bdf8" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+  <rect x="520" y="210" width="230" height="270" rx="22" fill="#111827" stroke="#fb923c" stroke-width="3"/>
+  <text x="635" y="260" text-anchor="middle" fill="#fed7aa" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900">Partition 3</text>
+  <text x="635" y="320" text-anchor="middle" fill="#fee2e2" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">lag grows</text>
+  <text x="635" y="360" text-anchor="middle" fill="#fee2e2" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">single worker pressure</text>
+  <rect x="830" y="180" width="280" height="310" rx="22" fill="#0f172a" stroke="#67e8f9" stroke-width="2"/>
+  <text x="970" y="235" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900">Better Design</text>
+  <g fill="#cffafe" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">
+    <text x="880" y="300">hot channel explicit map</text>
+    <text x="880" y="345">hash fallback for normal</text>
+    <text x="880" y="390">observe partition lag</text>
+    <text x="880" y="435">rebalance by real traffic</text>
+  </g>
+  <text x="90" y="575" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800">Expose partition_source_count, partition_processed_count, partition_lag, and channel_distribution.</text>
+</svg>

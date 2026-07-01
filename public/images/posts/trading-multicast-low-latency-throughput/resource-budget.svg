@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Machine resource budget</title>
+  <desc id="desc">A 64G market data receiver reserves memory and CPU for heap, direct memory, native memory, network buffers, GC threads, workers, and operating system networking.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1f3424"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="640" rx="28" fill="url(#bg)"/>
+  <text x="70" y="78" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">Resource Budget Before Parameter Tuning</text>
+  <text x="70" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18">A 64G host should leave room for heap, off-heap, native memory, kernel buffers, and runtime jitter.</text>
+  <rect x="90" y="180" width="1020" height="90" rx="18" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+  <rect x="90" y="180" width="500" height="90" rx="18" fill="#1d4ed8"/>
+  <rect x="590" y="180" width="125" height="90" fill="#0891b2"/>
+  <rect x="715" y="180" width="190" height="90" fill="#65a30d"/>
+  <rect x="905" y="180" width="205" height="90" rx="18" fill="#ca8a04"/>
+  <text x="340" y="232" text-anchor="middle" fill="#eff6ff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900">Heap 28-32G</text>
+  <text x="653" y="232" text-anchor="middle" fill="#ecfeff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">Direct 4-8G</text>
+  <text x="810" y="232" text-anchor="middle" fill="#f7fee7" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">OS / Native</text>
+  <text x="1008" y="232" text-anchor="middle" fill="#fef3c7" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">Reserve</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800">
+    <rect x="100" y="355" width="225" height="72" rx="16" fill="#172554" stroke="#93c5fd" stroke-width="2"/>
+    <text x="212" y="399" text-anchor="middle" fill="#dbeafe">Receiver CPU</text>
+    <rect x="370" y="355" width="225" height="72" rx="16" fill="#164e63" stroke="#67e8f9" stroke-width="2"/>
+    <text x="482" y="399" text-anchor="middle" fill="#cffafe">Parse Workers</text>
+    <rect x="640" y="355" width="225" height="72" rx="16" fill="#365314" stroke="#bef264" stroke-width="2"/>
+    <text x="752" y="399" text-anchor="middle" fill="#ecfccb">GC Threads</text>
+    <rect x="910" y="355" width="225" height="72" rx="16" fill="#713f12" stroke="#fde68a" stroke-width="2"/>
+    <text x="1022" y="399" text-anchor="middle" fill="#fef3c7">softirq / NIC</text>
+  </g>
+  <text x="100" y="515" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800">Do not give all memory to heap or all CPUs to business workers. Low latency needs reserved runtime capacity.</text>
+</svg>
